@@ -12,22 +12,21 @@ const UserAvatar = () => (
 )
 
 /**
- * Clean TopBar component with centered title and user avatar
+ * Clean TopBar component with left-aligned title and user avatar
  */
 function TopBar() {
   return (
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
-        <Box sx={{ flexGrow: 1 }} />
         <Typography 
           variant="h6" 
           component="div" 
           sx={{ 
             fontWeight: 'bold',
-            textAlign: 'center'
+            textAlign: 'left'
           }}
         >
-          People Performance Panel
+          People Performance Portal
         </Typography>
         <Box sx={{ flexGrow: 1 }} />
         <UserAvatar />

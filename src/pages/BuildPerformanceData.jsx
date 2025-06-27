@@ -10,8 +10,7 @@ import {
   FormControl,
   InputLabel,
   Select,
-  MenuItem,
-  Grid
+  MenuItem
 } from '@mui/material'
 import { CloudUpload } from '@mui/icons-material'
 
@@ -62,7 +61,7 @@ function BuildPerformanceData() {
         pb: 4
       }}
     >
-      <Container maxWidth="md">
+      <Container maxWidth="sm"> {/* Reduced from "md" to "sm" for 30% width reduction */}
         <Box sx={{ textAlign: 'center' }}>
           <Typography 
             variant="h3" 
@@ -231,9 +230,20 @@ function BuildPerformanceData() {
                   For Month
                 </Typography>
                 
-                <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
-                    <FormControl fullWidth>
+                <Box sx={{ 
+                  display: 'flex', 
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: '100%'
+                }}>
+                  <Box sx={{ 
+                    display: 'flex', 
+                    gap: 4,
+                    width: '100%',
+                    maxWidth: '500px', // Centered container with max width
+                    justifyContent: 'center'
+                  }}>
+                    <FormControl sx={{ minWidth: 200, flex: 1 }}>
                       <InputLabel>Month</InputLabel>
                       <Select
                         value={selectedMonth}
@@ -248,9 +258,7 @@ function BuildPerformanceData() {
                         ))}
                       </Select>
                     </FormControl>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <FormControl fullWidth>
+                    <FormControl sx={{ minWidth: 150, flex: 1 }}>
                       <InputLabel>Year</InputLabel>
                       <Select
                         value={selectedYear}
@@ -265,8 +273,8 @@ function BuildPerformanceData() {
                         ))}
                       </Select>
                     </FormControl>
-                  </Grid>
-                </Grid>
+                  </Box>
+                </Box>
               </CardContent>
             </Card>
 

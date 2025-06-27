@@ -23,7 +23,7 @@ function AdminBuild() {
         pb: 6
       }}
     >
-      <Container maxWidth="sm">
+      <Container maxWidth="xs"> {/* Reduced from "sm" to "xs" for 30% width reduction */}
         <Box 
           sx={{ 
             textAlign: 'center'
