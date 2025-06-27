@@ -1,4 +1,4 @@
-# HR-BPerformer
+# TEMPLATE
 
 A modern HR performance management application built with React and Vite.
 
