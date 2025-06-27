@@ -73,7 +73,7 @@ function BuildPerformanceData() {
               fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }
             }}
           >
-            Build Performance Data
+            
           </Typography>
 
           {/* Cards Stack */}
@@ -100,10 +100,10 @@ function BuildPerformanceData() {
                   sx={{
                     fontWeight: 600,
                     fontSize: { xs: '1.25rem', sm: '1.5rem' },
-                    mb: 3
+                    mb: 1
                   }}
                 >
-                  Upload
+                  
                 </Typography>
                 <Button
                   variant="contained"

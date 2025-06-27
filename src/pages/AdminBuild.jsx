@@ -11,6 +11,10 @@ function AdminBuild() {
     navigate('/admin-build/build-data')
   }
 
+  const handlePIPManagementClick = () => {
+    navigate('/admin-build/pip-management')
+  }
+
   return (
     <Box
       sx={{
@@ -74,10 +78,12 @@ function AdminBuild() {
 
             {/* Second Card */}
             <Card 
+              onClick={handlePIPManagementClick}
               sx={{ 
                 width: '100%',
                 boxShadow: 4,
                 borderRadius: 3,
+                cursor: 'pointer',
                 '&:hover': {
                   boxShadow: 8,
                   transform: 'translateY(-4px)',
