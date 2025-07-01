@@ -27,7 +27,7 @@ async def health_check():
 async def process_excel(
     file: UploadFile = File(...),
     integer_param: int = Form(...),
-    string_param: str = Form(...),
+    product_param: str = Form(...),
     month: str = Form(...),
     year: str = Form(...)
 ):
@@ -37,6 +37,22 @@ async def process_excel(
     try:
         contents = await file.read()
         df = pd.read_excel(io.BytesIO(contents))
+        
+        # Check if Product column exists
+        if 'Product' not in df.columns:
+            raise HTTPException(status_code=400, detail="Product column not found in Excel file")
+        
+        # Check if ALL values in Product column match product_param
+        unique_products = df['Product'].dropna().unique()
+        if len(unique_products) != 1 or unique_products[0] != product_param:
+            return JSONResponse(
+                status_code=400,
+                content={
+                    "status": "error",
+                    "message": f"Product column must contain only '{product_param}' values",
+                    "found_products": unique_products.tolist()
+                }
+            )
         
         result = {
             "status": "success",
@@ -49,7 +65,7 @@ async def process_excel(
             },
             "parameters": {
                 "integer_param": integer_param,
-                "string_param": string_param,
+                "product_param": product_param,
                 "month": month,
                 "year": year
             },
