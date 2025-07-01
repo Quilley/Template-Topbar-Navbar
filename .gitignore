@@ -11,6 +11,8 @@ dist/
 build/
 *.local
 
+Backend/hrbp
+
 # Environment variables
 .env
 .env.local
